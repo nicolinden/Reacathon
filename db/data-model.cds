@@ -6,3 +6,5 @@ entity LaunchComments {
   launchId : String;
   comment : String;
 }
+
+//TODO ad launchrating?

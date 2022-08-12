@@ -3,4 +3,6 @@ using my.bookshop as my from '../db/data-model';
 
 service CatalogService {
   entity LaunchComments as projection on my.LaunchComments;
+
+  //TODO ad launchrating?
 }
