@@ -1,0 +1,13 @@
+{
+    "name": "reacathon-approuter",
+    "dependencies": {
+        "@sap/approuter": "2.6.1"
+    },
+    "scripts": {
+        "dev": "./node_modules/.bin/nodemon -w . -e 'js,json,html,xml' node_modules/@sap/approuter/approuter.js",
+        "start": "node node_modules/@sap/approuter/approuter.js"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.19"
+    }
+}

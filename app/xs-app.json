@@ -1,0 +1,27 @@
+{
+	"welcomeFile": "/web/index.html",
+	"authenticationMethod": "route",
+	"sessionTimeout": 60,
+	"routes": [
+		{
+			"source": "^/api/(.*)",
+            "target":"$1",
+			"destination": "core-backend",
+			"authenticationType": "none",
+			"csrfProtection": false
+		},
+        {
+            "source": "^/(.*)",
+            "destination":"web-frontend",
+            "authenticationType": "none",
+			"csrfProtection": false
+
+        }
+	],
+	"errorPage": [
+		{
+			"status": 403,
+			"file": "public/access-denied.html"
+		}
+	]
+}

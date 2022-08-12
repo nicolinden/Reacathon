@@ -1,0 +1,21 @@
+ID: reactathon-demo
+_schema-version: "2.1"
+version: 2.2.2
+
+parameters:
+  keep-existing-routes: true
+  enable-parallel-deployments: true
+
+modules:
+  - name: reactathon-web
+    type: html5
+    path: .
+    parameters:
+      disk-quota: 512M
+      memory: 256M
+      buildpack: staticfile_buildpack
+    build-parameters:
+      builder: custom
+      build-result: build/
+      commands:
+        - npm run build

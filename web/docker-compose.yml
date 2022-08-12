@@ -1,0 +1,18 @@
+version: '3'
+
+networks:
+  reactathon:
+
+
+services:
+  reactathon-web:
+    image: reactathon:dev
+    container_name: reactathon-web
+    command: tail -f /dev/null
+    networks:
+      - reactathon
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+
