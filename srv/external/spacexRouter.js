@@ -23,7 +23,7 @@ router.use('/', async (req, res,next) => {
     const path = req.path;
     console.log(path);
     try{
-        const response = await  axios({
+        const response = await axios({
             url: `https://api.spacexdata.com${path}`,
             method: 'GET'
         });

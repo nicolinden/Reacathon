@@ -7,15 +7,20 @@
   "private": true,
   "dependencies": {
     "@sap/cds": "^5",
+    "axios": "^0.27.2",
     "express": "^4",
     "hdb": "^0.18.3"
   },
   "devDependencies": {
+    "concurrently": "^7.3.0",
     "sqlite3": "^5.0.11"
   },
   "scripts": {
     "start": "cds run",
-    "watch": "cds watch"
+    "watch": "cds watch",
+    "web": "npm start --prefix web",
+    "approuter": "npm start --prefix approuter",
+    "dev": "concurrently \"npm start\" \"npm run approuter\" \"npm run web\""
   },
   "eslintConfig": {
     "extends": "eslint:recommended",
