@@ -1,8 +1,7 @@
-version: '3'
+version: "3"
 
 networks:
   reactathon:
-
 
 services:
   reactathon-web:
@@ -15,4 +14,3 @@ services:
       - "3000:3000"
     volumes:
       - .:/app
-
