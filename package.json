@@ -20,7 +20,8 @@
     "watch": "cds watch",
     "web": "npm start --prefix web",
     "approuter": "npm start --prefix approuter",
-    "dev": "concurrently \"npm start\" \"npm run approuter\" \"npm run web\""
+    "dev": "concurrently \"npm start\" \"npm run approuter\" \"npm run web\"",
+    "postinstall": "(cd approuter && npm install); (cd web && npm install)"
   },
   "eslintConfig": {
     "extends": "eslint:recommended",
