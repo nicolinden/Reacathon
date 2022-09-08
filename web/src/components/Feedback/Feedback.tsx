@@ -1,12 +1,5 @@
-import {
-  Heading,
-  Icon,
-  IconComponent,
-  majorScale,
-  Pane,
-  Paragraph,
-} from "evergreen-ui";
-import React from "react";
+import { Heading, Icon, IconComponent, majorScale, Pane, Paragraph } from 'evergreen-ui';
+import React from 'react';
 
 interface FeedbackProps {
   icon: IconComponent;
@@ -30,11 +23,7 @@ export const Feedback: React.FC<FeedbackProps> = (props) => {
       <Icon color="blue500" icon={icon} size={32} />
       <Pane>
         <Heading size={700}>{title}</Heading>
-        <Paragraph
-          size={500}
-          padding={majorScale(2)}
-          paddingBottom={majorScale(1)}
-        >
+        <Paragraph size={500} padding={majorScale(2)} paddingBottom={majorScale(1)}>
           {description}
         </Paragraph>
       </Pane>
