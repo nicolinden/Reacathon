@@ -13,6 +13,7 @@ import { Header } from 'src/components/Header/Header';
 import { company } from 'src/services/company';
 import { launches } from 'src/services/launches';
 import { Launch } from 'src/components/Launch/Launch';
+import { Link } from 'react-router-dom';
 
 export const Home: React.FC = () => {
     //Getting launches from SpaceX
@@ -32,10 +33,12 @@ export const Home: React.FC = () => {
       <Header />
       <main>
         {launchDetails.map((launch: any) => (
-          <Launch key={launch.id} icon={launch.links.patch.small}
-          title={launch.name}
-          date={launch.date_utc} success={launch.success}
-          />
+          <Link key={launch.id} to={`/launch/${launch.id}`}>
+            <Launch key={launch.id} icon={launch.links.patch.small}
+              title={launch.name}
+              date={launch.date_utc} success={launch.success}
+            />
+          </Link>
         ))}
       </main>
     </Pane>
