@@ -1,4 +1,14 @@
-import { Pane, Link, ListItem, UnorderedList, RocketSlantIcon, Image, Text, Icon } from 'evergreen-ui';
+import {
+  Pane,
+  Link,
+  ListItem,
+  UnorderedList,
+  RocketSlantIcon,
+  Image,
+  Text,
+  Icon,
+  minorScale,
+  majorScale } from 'evergreen-ui';
 import React, { useEffect, useState } from 'react';
 import { Header } from 'src/components/Header/Header';
 import { launches } from 'src/services/launches';
@@ -21,16 +31,16 @@ export const Home: React.FC<any> = () => {
   //   );
   // };
 
-  const LaunchItem = () => {
+  const LaunchItem = ({ image, name }: any) => {
     const [isSuccess, setIsSuccess] = useState(false);
     return (
-      <Pane display="flex" flexDirection="row" justifyContent="space-between">
-        <Pane>
-          <Image />
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <Text>name</Text>
+      <Pane display="flex" flexDirection="row" justifyContent="space-between" padding={majorScale(1)}>
+        <Pane display="flex" flexDirection="row" alignContent="center" alignItems="center">
+          <Image src={image} width="44px" height="44px"/>
+          <Pane display="flex" flexDirection="column" padding={majorScale(1)}>
+            <Text>{name}</Text>
             <Text>date</Text>
-          </div>
+          </Pane>
         </Pane>
         <Icon icon={RocketSlantIcon} color={isSuccess ? 'green' : 'red'} />
       </Pane>
@@ -39,7 +49,7 @@ export const Home: React.FC<any> = () => {
 
   const listItems = launchList.map((launch: any) => {
     return (
-      <LaunchItem key={launch.id} />
+      <LaunchItem key={launch.id} image={launch.links.patch.small} name={launch.name}/>
       // <LaunchList></LaunchList>
       // <ListItem key={launch.id}>
       //   <Link target="__blank" href="https://reactjs.org/docs/getting-started.html">
