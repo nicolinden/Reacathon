@@ -4,6 +4,7 @@ import { Header } from 'src/components/Header/Header';
 import { launches } from 'src/services/launches';
 import { Outlet, useParams } from "react-router-dom";
 import { TabBar } from 'src/components/Footer/TabBar';
+import { Map } from 'src/components/Map/Map';
 
 export const LaunchDetailPage: React.FC<any> = () => {
   const { lauchId } = useParams();
@@ -22,6 +23,7 @@ export const LaunchDetailPage: React.FC<any> = () => {
         <Outlet />
         {/* <div>{launchDetails.name} {launchDetails.id}</div> */}
         <TabBar />
+        <Map position={[51.505, -0.09]} />
       </main>
     </Pane>
   );

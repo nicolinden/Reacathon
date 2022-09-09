@@ -78,7 +78,7 @@ export const Home: React.FC<any> = () => {
 
   return (
     <Pane>
-      <Header name="Space X Launches" />
+      <Header headerTitle="Space X Launches" showBackButton={false} />
       <main>
         <UnorderedList icon={RocketSlantIcon} iconColor="info" paddingBottom={majorScale(3)}>
           {listItems}

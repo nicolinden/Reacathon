@@ -1,18 +1,28 @@
 import React from 'react';
-import { Heading, majorScale, Pane } from 'evergreen-ui';
+import { Button, Heading, majorScale, Pane } from 'evergreen-ui';
+import { useNavigate } from "react-router-dom";
 
-export const Header = ({ name }: any) => {
+interface HeaderInterface {
+  showBackButton: boolean;
+  headerTitle: string;
+};
+
+export const Header: React.FC<HeaderInterface> = (props) => {
+  const { showBackButton, headerTitle } = props;
+  const navigate = useNavigate();
+  const navBack = () => navigate(-1);
+
   return (
     <Pane
       height={majorScale(6)}
       background="blue700"
-      color="white"
       textAlign="center"
       display="flex"
       justifyContent="center"
       alignItems="center"
     >
-      <Heading size={600} color="white">{name}</Heading>
+      {showBackButton && <Button onClick={navBack} style={{ marginLeft: '8px', marginRight: 'auto' }}>Back</Button>}
+      <Heading size={600} color="white" style={{ margin: 'auto' }}>{headerTitle}</Heading>
     </Pane>
   );
 };
