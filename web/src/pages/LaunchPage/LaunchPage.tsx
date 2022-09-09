@@ -11,22 +11,27 @@ import {
   import { useParams } from 'react-router-dom';
 
   export const LaunchPage: React.FC = () => {
-      //Getting launches from SpaceX
-      const [launchDetails, setLaunchDetails] = useState([]);
+      //Getting single Launch from SpaceX
+      const  [launchId, setLaunchId] = useState<any>(useParams().launchId);
+      const [launchSingleDetail, setLaunchSingleDetail] = useState<any>({});
+
       useEffect(() => {
         launches()
-          .getLaunches()
+          .getSingleLaunch(launchId)
           .then((data) => {
-            console.log(data);
-            setLaunchDetails(data);
+            setLaunchSingleDetail(data);
           })
           .catch((e) => console.error(e));
-      }, []);
-        const { launchId } = useParams();
+      }, [launchId]);
 
         return (
           <div>
+            <input onChange={(e) => {
+              setLaunchId(e.target.value);
+            }}
+            />
             <h3>ID: {launchId}</h3>
+            <h3>Title: {launchSingleDetail.name}</h3>
           </div>
         );
   };
