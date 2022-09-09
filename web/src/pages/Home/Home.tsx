@@ -15,6 +15,7 @@ import { Feedback } from 'src/components/Feedback/Feedback';
 import { Footer } from 'src/components/Footer/Footer';
 import { Header } from 'src/components/Header/Header';
 import { company } from 'src/services/company';
+import { Launch } from 'src/components/Launch/Launch';
 
 export const Home: React.FC = () => {
   const [isShown, setIsShown] = useState(false);
@@ -33,6 +34,9 @@ export const Home: React.FC = () => {
     <Pane>
       <Header />
       <main>
+        <Launch icon="https://images2.imgbox.com/94/f2/NN6Ph45r_o.png" title="ABS-2A / Eutelsat 117W B"
+          date="13 June 2006" successIcon="/img/success.png"
+        />
         <Feedback
           icon={ThumbsUpIcon}
           title="Voorbeeld component"

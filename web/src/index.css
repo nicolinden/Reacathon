@@ -4,3 +4,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.launchWrapper{
+  overflow: hidden;
+}
+.launchItemPart{
+  float:left;
+}
