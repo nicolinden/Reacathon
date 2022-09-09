@@ -9,31 +9,51 @@ import {
   Pulsar,
   Position,
   Pane,
+  Link,
+  ListItem,
+  minorScale,
+  Strong,
+  UnorderedList,
+  RocketSlantIcon,
 } from 'evergreen-ui';
 import React, { useEffect, useState } from 'react';
 import { Feedback } from 'src/components/Feedback/Feedback';
 import { Footer } from 'src/components/Footer/Footer';
 import { Header } from 'src/components/Header/Header';
 import { company } from 'src/services/company';
+import { launches } from 'src/services/launches';
 
-export const Home: React.FC = () => {
+export const Home: React.FC<any> = () => {
   const [isShown, setIsShown] = useState(false);
-  const [companyDetails, setCompanyDetails] = useState<any>({});
+  // const [companyDetails, setCompanyDetails] = useState<any>({});
+  const [launchList, setLaunchList] = useState<any>([]);
 
   const handleMessage = () => setIsShown(true);
 
   useEffect(() => {
-    company()
-      .getCompany()
-      .then((data) => setCompanyDetails(data))
+    launches()
+      .getLaunches()
+      .then((data) => setLaunchList(data))
       .catch((e) => console.error(e));
   }, []);
+
+  const listItems = launchList.map((launch: any) => {
+    return (<ListItem key={launch.id}>
+      <Link target="__blank" href="https://reactjs.org/docs/getting-started.html">
+        {launch.name}
+      </Link>
+  </ListItem>);
+  });
 
   return (
     <Pane>
       <Header />
       <main>
-        <Feedback
+      <UnorderedList icon={RocketSlantIcon} iconColor="info">
+        {listItems}
+      </UnorderedList>
+
+        {/* <Feedback
           icon={ThumbsUpIcon}
           title="Voorbeeld component"
           description="Vervang dit component en start de 'opdracht'"
@@ -43,16 +63,10 @@ export const Home: React.FC = () => {
               <Pulsar position={Position.TOP_LEFT} />
             </Button>
           }
-        />
+        /> */}
       </main>
-      <Footer />
+      {/* <Footer /> */}
 
-      <Dialog title={companyDetails.name} isShown={isShown} onCloseComplete={() => setIsShown(false)} hasFooter={false}>
-        <Paragraph marginBottom={majorScale(4)} size={500}>
-          {companyDetails.summary}
-        </Paragraph>
-        <Text size={500}>Veel plezier met de Reacathon</Text>
-      </Dialog>
     </Pane>
   );
 };
