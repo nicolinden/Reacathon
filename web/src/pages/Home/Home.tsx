@@ -1,4 +1,5 @@
-import { Pane, Link, ListItem, UnorderedList, RocketSlantIcon } from 'evergreen-ui';
+import { Pane, ListItem, UnorderedList, RocketSlantIcon } from 'evergreen-ui';
+import { Link } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
 import { Header } from 'src/components/Header/Header';
 import { launches } from 'src/services/launches';
@@ -16,7 +17,7 @@ export const Home: React.FC<any> = () => {
   const listItems = launchList.map((launch: any) => {
     return (
       <ListItem key={launch.id}>
-        <Link target="__blank" href="https://reactjs.org/docs/getting-started.html">
+        <Link to={`/${launch.id}`}>
           {launch.name}
         </Link>
       </ListItem>
