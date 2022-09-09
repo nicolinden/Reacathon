@@ -23,5 +23,17 @@ export const launches = () => {
     }
   };
 
-  return { getLaunches, getLaunchDetails };
+  const getLaunchPadDetails = async (launchPadId: string | undefined) => {
+    try {
+      if (launchPadId) {
+        const response = await api.get(`/v4/launchpads/${launchPadId}`);
+        return response.data;
+      }
+      throw new Error("Invalid URL parameter!");
+    } catch (error) {
+      throw new Error(String(error));
+    }
+  };
+
+  return { getLaunches, getLaunchDetails, getLaunchPadDetails };
 };

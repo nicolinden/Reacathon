@@ -9,7 +9,7 @@ export const Map: React.FC<MapInterface> = (props) => {
   const { position } = props;
   return (
     <div style={{ height: '300px' }}>
-      <MapContainer style={{ height: '100%' }} center={position} zoom={10} scrollWheelZoom={false}>
+      <MapContainer style={{ height: '100%' }} center={position} zoom={15} scrollWheelZoom={false}>
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
           <Marker position={position}>
             <Popup>
