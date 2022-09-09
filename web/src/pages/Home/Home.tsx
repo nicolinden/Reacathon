@@ -37,7 +37,7 @@ export const Home: React.FC<any> = () => {
   //   );
   // };
 
-  const LaunchItem = ({ launchId, launchDate, success, image, name }: any) => {
+  const LaunchItem = ({ launchId, launchDate, launchSuccess, image, name }: any) => {
     return (
       <Link to={`/${launchId}/info`} style={ { textDecoration:'none' } }>
         <Pane display="flex" flexDirection="row"
@@ -51,7 +51,7 @@ export const Home: React.FC<any> = () => {
             </Pane>
           </Pane>
           <Pane>
-            <Icon icon={success ? EndorsedIcon : ErrorIcon} color={success ? 'green' : 'red'} size={18} />
+            <Icon icon={launchSuccess ? EndorsedIcon : ErrorIcon} color={launchSuccess ? 'green' : 'red'} size={18} />
             <Icon icon={ChevronRightIcon} color="gray" paddingLeft={majorScale(1)} />
           </Pane>
         </Pane>

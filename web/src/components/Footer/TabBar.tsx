@@ -1,5 +1,6 @@
 import { Button, Group, IconButton, InfoSignIcon, majorScale, Pane, SegmentedControl } from 'evergreen-ui';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export const TabBar = () => {
     const [options] = React.useState([
@@ -10,6 +11,11 @@ export const TabBar = () => {
     ]);
 
     const [value, setValue] = React.useState<any>('info');
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        navigate(value);
+    }, [navigate, value]);
 
     return (
         <Pane position="fixed" bottom="0" width="100%" background="gray50">
