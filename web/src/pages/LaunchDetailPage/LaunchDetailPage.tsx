@@ -2,7 +2,8 @@ import { Pane } from 'evergreen-ui';
 import React, { useEffect, useState } from 'react';
 import { Header } from 'src/components/Header/Header';
 import { launches } from 'src/services/launches';
-import { useParams } from "react-router-dom";
+import { Outlet, useParams } from "react-router-dom";
+import { TabBar } from 'src/components/Footer/TabBar';
 
 export const LaunchDetailPage: React.FC<any> = () => {
   const { lauchId } = useParams();
@@ -17,9 +18,10 @@ export const LaunchDetailPage: React.FC<any> = () => {
 
   return (
     <Pane>
-      <Header />
       <main>
-        <div>{launchDetails.name} {launchDetails.id}</div>
+        <Outlet />
+        {/* <div>{launchDetails.name} {launchDetails.id}</div> */}
+        <TabBar />
       </main>
     </Pane>
   );

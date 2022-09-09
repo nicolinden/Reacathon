@@ -16,6 +16,8 @@ import { Link } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
 import { Header } from 'src/components/Header/Header';
 import { launches } from 'src/services/launches';
+import { Footer } from 'src/components/Footer/Footer';
+import { TabBar } from 'src/components/Footer/TabBar';
 
 export const Home: React.FC<any> = () => {
   const [launchList, setLaunchList] = useState<any>([]);
@@ -37,7 +39,7 @@ export const Home: React.FC<any> = () => {
 
   const LaunchItem = ({ launchId, launchDate, success, image, name }: any) => {
     return (
-      <Link to={`/${launchId}`} style={ { textDecoration:'none' } }>
+      <Link to={`/${launchId}/info`} style={ { textDecoration:'none' } }>
         <Pane display="flex" flexDirection="row"
           justifyContent="space-between" padding={majorScale(1)} alignContent="Center" alignItems="Center"
         >
@@ -78,7 +80,7 @@ export const Home: React.FC<any> = () => {
     <Pane>
       <Header name="Space X Launches" />
       <main>
-        <UnorderedList icon={RocketSlantIcon} iconColor="info">
+        <UnorderedList icon={RocketSlantIcon} iconColor="info" paddingBottom={majorScale(3)}>
           {listItems}
         </UnorderedList>
       </main>

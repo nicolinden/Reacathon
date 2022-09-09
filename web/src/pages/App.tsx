@@ -8,7 +8,12 @@ export const App: React.FC = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/:lauchId" element={<LaunchDetailPage />} />
+      <Route path="/:lauchId" element={<LaunchDetailPage />}>
+        <Route path="info" element={<Home />} />
+        <Route path="ships" element={<Home />} />
+        <Route path="crew" element={<Home />} />
+        <Route path="media" element={<NotFound />} />
+      </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
