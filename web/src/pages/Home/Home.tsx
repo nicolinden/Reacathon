@@ -29,9 +29,9 @@ export const Home: React.FC = () => {
     }, []);
 
   return (
-    <Pane>
-      <Header />
+    <Pane className="tableWrapper">
       <main>
+      <h1 className="titleItem">Space-X</h1>
         {launchDetails.map((launch: any) => (
           <Link key={launch.id} to={`/launch/${launch.id}`}>
             <Launch key={launch.id} icon={launch.links.patch.small}

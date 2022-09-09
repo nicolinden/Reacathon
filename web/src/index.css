@@ -1,22 +1,51 @@
+@font-face {
+  font-family: 'MyWebFont';
+  src: url('Moon2.0-Regular.woff') format('woff');
+}
+
 body {
   margin: 0;
-  font-family: Roboto, sans-serif, arial;
+  font-family: MyWebFont, sans-serif, arial;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 .launchWrapper{
-  padding: 2rem 0 0 0.8rem;
+  padding: 1.5rem 0 0 0.8rem;
   overflow: hidden;
-  width: 400px;
+  width: calc(100vw-2rem);
   height: 100px;
-  border: 1px solid white;
+  border-bottom: 0.2px solid grey;
   /* background-color: black; */
+}
+.tableWrapper{
+  padding: 2rem;
 }
 .launchItemPart{
   float:left;
 }
 .launchItemLastPart{
+  padding: 0.5rem 0 0 0;
   float:right;
+  color:grey;
+}
+.titleItem {
+  text-align: center;
+  font-size: 3rem;
 }
 
-#map { height: 360px; }
+.textLaunchItem {
+padding: 0 0 0 1rem;
+font-size: 1.4rem;
+font-weight: bold;
+color:black;
+}
+
+.dateLaunchItem {
+  padding: 0.1rem 0 0 1rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1rem;
+  color:black;
+  }
+
+  #map { height: 360px; }

@@ -8,6 +8,7 @@ import {
   } from 'evergreen-ui';
   import React, { useEffect, useState } from 'react';
   import { launches } from 'src/services/launches';
+  import { Ship } from 'src/components/Ship/Ship';
   import { useParams } from 'react-router-dom';
   import { useMapEvents, MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 
@@ -45,10 +46,6 @@ import {
 
         return (
           <div>
-            {/* <input onChange={(e) => {
-              setLaunchId(e.target.value);
-            }}
-            /> */}
             <h3>ID: {launchId}</h3>
             <h3>Title: {launchSingleDetail.name}</h3>
             <div id="map">
@@ -67,6 +64,11 @@ import {
           </MapContainer>
               }
           </div>
+            <Button marginRight={16} intent="danger"
+                onClick={()=>{window.location.href=`/ships/${launchId}`;}}
+            >
+                Ship info
+            </Button>
           </div>
         );
   };
