@@ -9,9 +9,12 @@
     "@sap/cds": "^5",
     "axios": "^0.27.2",
     "express": "^4",
-    "hdb": "^0.18.3"
+    "hdb": "^0.18.3",
+    "leaflet": "^1.8.0",
+    "react-leaflet": "^4.0.2"
   },
   "devDependencies": {
+    "@types/leaflet": "^1.7.11",
     "concurrently": "^7.3.0",
     "sqlite3": "^5.0.11"
   },

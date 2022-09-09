@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Heading, majorScale, Pane } from 'evergreen-ui';
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 interface HeaderInterface {
   showBackButton: boolean;
@@ -21,8 +21,8 @@ export const Header: React.FC<HeaderInterface> = (props) => {
       justifyContent="center"
       alignItems="center"
     >
-      {showBackButton && <Button onClick={navBack}>Back</Button>}
-      <Heading size={600} color="white">{headerTitle}</Heading>
+      {showBackButton && <Button onClick={navBack} style={{ marginLeft: '8px', marginRight: 'auto' }}>Back</Button>}
+      <Heading size={600} color="white" style={{ margin: 'auto' }}>{headerTitle}</Heading>
     </Pane>
   );
 };
