@@ -47,9 +47,13 @@ export const Home: React.FC = () => {
     <Pane>
       <Header />
       <main>
-        <Launch icon="https://images2.imgbox.com/94/f2/NN6Ph45r_o.png" title="ABS-2A / Eutelsat 117W B"
+        {launchDetails.map((launch: any) => (
+          <Launch key={launch.id} icon={launch.links.patch.small}
+          title="ABS-2A / Eutelsat 117W B"
           date="13 June 2006" successIcon="/img/success.png"
-        />
+          />
+        ))}
+
         <Feedback
           icon={ThumbsUpIcon}
           title="Voorbeeld component"
