@@ -2,6 +2,10 @@
   font-family: 'MyWebFont';
   src: url('Moon2.0-Regular.woff') format('woff');
 }
+@font-face {
+  font-family: 'MyWebFont2';
+  src: url('Moon2.0-Light.woff') format('woff');
+}
 
 body {
   margin: 0;
@@ -43,7 +47,14 @@ color:black;
 
 .dateLaunchItem {
   padding: 0.1rem 0 0 1rem;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: MyWebFont2;
   font-size: 1rem;
   color:black;
+  }
+  .iconBar {
+    position: absolute;
+    left:calc(100vw/2); right:auto; bottom:10px;
+  }
+  .css-lfowci {
+    height: 55px;
   }
