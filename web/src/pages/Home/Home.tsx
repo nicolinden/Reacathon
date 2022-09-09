@@ -6,8 +6,12 @@ import {
   Image,
   Text,
   Icon,
+  EndorsedIcon,
+  ChevronRightIcon,
+  ErrorIcon,
   minorScale,
-  majorScale } from 'evergreen-ui';
+  majorScale,
+  Heading } from 'evergreen-ui';
 import { Link } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
 import { Header } from 'src/components/Header/Header';
@@ -31,19 +35,23 @@ export const Home: React.FC<any> = () => {
   //   );
   // };
 
-  const LaunchItem = ({ launchId, image, name }: any) => {
-    const [isSuccess, setIsSuccess] = useState(false);
+  const LaunchItem = ({ launchId, launchDate, success, image, name }: any) => {
     return (
-      <Link to={`/${launchId}`}>
-        <Pane display="flex" flexDirection="row" justifyContent="space-between" padding={majorScale(1)}>
+      <Link to={`/${launchId}`} style={ { textDecoration:'none' } }>
+        <Pane display="flex" flexDirection="row"
+          justifyContent="space-between" padding={majorScale(1)} alignContent="Center" alignItems="Center"
+        >
           <Pane display="flex" flexDirection="row" alignContent="center" alignItems="center">
             <Image src={image} width="44px" height="44px"/>
             <Pane display="flex" flexDirection="column" padding={majorScale(1)}>
-              <Text>{name}</Text>
-              <Text>date</Text>
+              <Heading>{name}</Heading>
+              <Text>{launchDate}</Text>
             </Pane>
           </Pane>
-          <Icon icon={RocketSlantIcon} color={isSuccess ? 'green' : 'red'} />
+          <Pane>
+            <Icon icon={success ? EndorsedIcon : ErrorIcon} color={success ? 'green' : 'red'} size={18} />
+            <Icon icon={ChevronRightIcon} color="gray" paddingLeft={majorScale(1)} />
+          </Pane>
         </Pane>
       </Link>
     );
@@ -51,7 +59,12 @@ export const Home: React.FC<any> = () => {
 
   const listItems = launchList.map((launch: any) => {
     return (
-      <LaunchItem key={launch.id} launchId={launch.id} image={launch.links.patch.small} name={launch.name}/>
+      <LaunchItem
+        key={launch.id}
+        launchId={launch.id}
+        launchDate={new Date(launch.date_utc).toLocaleDateString("en-US")}
+        launchSuccess={launch.success} image={launch.links.patch.small} name={launch.name}
+      />
       // <LaunchList></LaunchList>
       // <ListItem key={launch.id}>
       //   <Link target="__blank" href="https://reactjs.org/docs/getting-started.html">
@@ -63,7 +76,7 @@ export const Home: React.FC<any> = () => {
 
   return (
     <Pane>
-      <Header headerTitle="" showBackButton={false} />
+      <Header headerTitle="Space X Launches" showBackButton={false} />
       <main>
         <UnorderedList icon={RocketSlantIcon} iconColor="info">
           {listItems}

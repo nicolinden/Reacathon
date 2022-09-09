@@ -15,14 +15,14 @@ export const Header: React.FC<HeaderInterface> = (props) => {
   return (
     <Pane
       height={majorScale(6)}
-      background="green400"
+      background="blue700"
       textAlign="center"
       display="flex"
       justifyContent="center"
       alignItems="center"
     >
       {showBackButton && <Button onClick={navBack}>Back</Button>}
-      <Heading size={600}>{headerTitle}</Heading>
+      <Heading size={600} color="white">{headerTitle}</Heading>
     </Pane>
   );
 };
