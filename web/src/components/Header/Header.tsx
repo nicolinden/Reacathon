@@ -10,7 +10,7 @@ interface HeaderInterface {
 export const Header: React.FC<HeaderInterface> = (props) => {
   const { showBackButton, headerTitle } = props;
   const navigate = useNavigate();
-  const navBack = () => navigate(-1);
+  const navBack = () => navigate("/");
 
   return (
     <Pane
