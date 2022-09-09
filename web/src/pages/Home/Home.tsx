@@ -35,7 +35,7 @@ export const Home: React.FC = () => {
       <Header />
       <main>
         <Launch icon="https://images2.imgbox.com/94/f2/NN6Ph45r_o.png" title="ABS-2A / Eutelsat 117W B"
-          date="13 June 2006" successIcon="/img/success.png"
+          date="13 June 2006" success={true}
         />
         <Feedback
           icon={ThumbsUpIcon}

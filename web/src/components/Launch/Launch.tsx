@@ -1,26 +1,25 @@
 import React from 'react';
-//import { Heading, majorScale, Pane } from 'evergreen-ui';
+import { SiAccenture } from "react-icons/si";
+import { VscCheck,VscChromeClose } from "react-icons/vsc";
+interface LaunchProps{
+    icon: string;
+    title: string;
+    date: string;
+    success: boolean;
+}
+export const Launch = (props:LaunchProps) => {
 
-export const Launch = (props:any) => {
+    const successIcon = props.success ? <VscCheck/> : <VscChromeClose/>;
+
   return (
     <div className="launchWrapper">
         <img src={props.icon} alt={props.icon} width="30" height="30" className="launchItemPart"/>
         <div className="launchItemPart">
-            <div>title: {props.title}</div>
-            <div>date: {props.date}</div>
+            <div>{props.title}</div>
+            <div>{props.date}</div>
         </div>
-        <div className="launchItemPart">success icon: {props.successIcon}</div>
-        <div className="launchItemPart">arrow &gt;</div>
+        <div className="launchItemPart">{successIcon}</div>
+        <div className="launchItemLastPart"><SiAccenture/></div>
     </div>
-    // <Pane
-    //   height={majorScale(6)}
-    //   background="green400"
-    //   textAlign="center"
-    //   display="flex"
-    //   justifyContent="center"
-    //   alignItems="center"
-    // >
-    //   <Heading size={600}>Reacathon</Heading>
-    // </Pane>
   );
 };
