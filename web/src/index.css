@@ -5,10 +5,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 .launchWrapper{
+  padding: 2rem 0 0 0.8rem;
   overflow: hidden;
-  width: 300px;
-  height: 75px;
-  border: 1px solid red;
+  width: 400px;
+  height: 100px;
+  border: 1px solid white;
+  /* background-color: black; */
 }
 .launchItemPart{
   float:left;

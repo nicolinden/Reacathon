@@ -2,10 +2,6 @@ import {
   Button,
   ThumbsUpIcon,
   NotificationsIcon,
-  Dialog,
-  Text,
-  Paragraph,
-  majorScale,
   Pulsar,
   Position,
   Pane,
@@ -19,11 +15,6 @@ import { launches } from 'src/services/launches';
 import { Launch } from 'src/components/Launch/Launch';
 
 export const Home: React.FC = () => {
-  const [isShown, setIsShown] = useState(false);
-  const [companyDetails, setCompanyDetails] = useState<any>({});
-
-  const handleMessage = () => setIsShown(true);
-
     //Getting launches from SpaceX
     const [launchDetails, setLaunchDetails] = useState([]);
     useEffect(() => {
@@ -36,13 +27,6 @@ export const Home: React.FC = () => {
         .catch((e) => console.error(e));
     }, []);
 
-  useEffect(() => {
-    company()
-      .getCompany()
-      .then((data) => setCompanyDetails(data))
-      .catch((e) => console.error(e));
-  }, []);
-
   return (
     <Pane>
       <Header />
@@ -53,27 +37,7 @@ export const Home: React.FC = () => {
           date={launch.date_utc} success={launch.success}
           />
         ))}
-
-        <Feedback
-          icon={ThumbsUpIcon}
-          title="Voorbeeld component"
-          description="Vervang dit component en start de 'opdracht'"
-          action={
-            <Button iconBefore={NotificationsIcon} appearance="primary" intent="none" onClick={handleMessage}>
-              Klik om er achter te komen welke api we gebruiken!
-              <Pulsar position={Position.TOP_LEFT} />
-            </Button>
-          }
-        />
       </main>
-      <Footer />
-
-      <Dialog title={companyDetails.name} isShown={isShown} onCloseComplete={() => setIsShown(false)} hasFooter={false}>
-        <Paragraph marginBottom={majorScale(4)} size={500}>
-          {companyDetails.summary}
-        </Paragraph>
-        <Text size={500}>Veel plezier met de Reacathon</Text>
-      </Dialog>
     </Pane>
   );
 };
