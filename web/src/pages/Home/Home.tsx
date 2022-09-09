@@ -15,6 +15,7 @@ import { Feedback } from 'src/components/Feedback/Feedback';
 import { Footer } from 'src/components/Footer/Footer';
 import { Header } from 'src/components/Header/Header';
 import { company } from 'src/services/company';
+import { launches } from 'src/services/launches';
 import { Launch } from 'src/components/Launch/Launch';
 
 export const Home: React.FC = () => {
@@ -22,6 +23,18 @@ export const Home: React.FC = () => {
   const [companyDetails, setCompanyDetails] = useState<any>({});
 
   const handleMessage = () => setIsShown(true);
+
+    //Getting launches from SpaceX
+    const [launchDetails, setLaunchDetails] = useState([]);
+    useEffect(() => {
+      launches()
+        .getLaunches()
+        .then((data) => {
+          console.log(data);
+          setLaunchDetails(data);
+        })
+        .catch((e) => console.error(e));
+    }, []);
 
   useEffect(() => {
     company()
