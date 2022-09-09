@@ -5,16 +5,33 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 .launchWrapper{
-  padding: 2rem 0 0 0.8rem;
+  padding: 1.5rem 0 0 0.8rem;
   overflow: hidden;
-  width: 400px;
+  width: 450px;
   height: 100px;
-  border: 1px solid white;
+  border-bottom: 1px solid grey;
   /* background-color: black; */
 }
 .launchItemPart{
   float:left;
 }
 .launchItemLastPart{
+  padding: 0.5rem 0 0 0;
   float:right;
+  color:black;
 }
+
+.textLaunchItem {
+padding: 0 0 0 1rem;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+font-size: 1.4rem;
+font-weight: bold;
+color:black;
+}
+
+.dateLaunchItem {
+  padding: 0.1rem 0 0 1rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1rem;
+  color:black;
+  }
