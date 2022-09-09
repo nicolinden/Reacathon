@@ -21,6 +21,16 @@ export const launches = () => {
       }
   };
 
+  const getLaunchpadDetails = async (launchPadId: any) => {
+    try {
+        const response = await api.get(`/v4/launchpads/${launchPadId}`);
+
+        return response.data;
+      } catch (error) {
+        throw new Error(String(error));
+      }
+  };
+
   const getShips = async (launchId: any) => {
     try {
       // get ships to retrieve
@@ -42,5 +52,5 @@ export const launches = () => {
       }
   };
 
-  return { getLaunches, getSingleLaunch, getShips };
+  return { getLaunches, getSingleLaunch, getLaunchpadDetails, getShips };
 };
