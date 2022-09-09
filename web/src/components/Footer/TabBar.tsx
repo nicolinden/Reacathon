@@ -3,12 +3,13 @@ import React from 'react';
 
 export const TabBar = () => {
     const [options] = React.useState([
-        { label: 'Hourly', value: 'hourly' },
-        { label: 'Daily', value: 'daily' },
-        { label: 'Monthly', value: 'monthly' },
+        { label: 'Info', value: 'info' },
+        { label: 'Ships', value: 'ships' },
+        { label: 'Crew', value: 'crew' },
+        { label: 'Media', value: 'media' },
     ]);
 
-    const [value, setValue] = React.useState<any>('daily');
+    const [value, setValue] = React.useState<any>('info');
 
     return (
         <Pane position="fixed" bottom="0" width="100%" background="gray50">
