@@ -1,4 +1,4 @@
-import { Pane } from 'evergreen-ui';
+import { Heading, majorScale, Pane, Text, Image } from 'evergreen-ui';
 import React, { useEffect, useState } from 'react';
 import { launches } from 'src/services/launches';
 import { Outlet, useOutletContext, useParams } from "react-router-dom";
@@ -30,13 +30,22 @@ export const InfoPage: React.FC<any> = () => {
 //       .then((data) => setLaunchDetails(data))
 //       .catch((e) => console.error(e));
 //   }, [lauchId]);
-
   return (
+
     <Pane>
-      <main>
-          <Header headerTitle={launchDetails.name} showBackButton={true} />
-          { hasPosition && <Map position={[launchPadDetails.latitude, launchPadDetails.longitude]} /> }
-      </main>
+        <Header headerTitle={launchDetails.name} showBackButton={true} />
+        { hasPosition && <Map position={[launchPadDetails.latitude, launchPadDetails.longitude]} /> }
+        { !hasPosition && <Heading>Loading Data...</Heading> }
+
+        <Pane display="flex" flexDirection="column" alignContent="Center" alignItems="Center">
+            {launchDetails.links &&
+                <Image src={launchDetails.links.patch.small} width="80px" height="80px" className="launchImage" />
+            }
+            <Pane padding={majorScale(1)}>
+                <Heading>{launchDetails.name}</Heading>
+                <Text>{launchDetails.details}</Text>
+            </Pane>
+        </Pane>
     </Pane>
   );
 };
