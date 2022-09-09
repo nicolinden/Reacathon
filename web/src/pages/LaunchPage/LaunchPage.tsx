@@ -1,15 +1,16 @@
 import {
     Button,
-    ThumbsUpIcon,
-    NotificationsIcon,
-    Pulsar,
-    Position,
-    Pane,
+    TabNavigation,
+    Tab,
   } from 'evergreen-ui';
   import React, { useEffect, useState } from 'react';
   import { launches } from 'src/services/launches';
   import { Ship } from 'src/components/Ship/Ship';
   import { useParams } from 'react-router-dom';
+import { IconContext } from 'react-icons';
+import { SiStarship } from 'react-icons/si';
+import { RiShipFill } from 'react-icons/ri';
+import { NavigationBar } from 'src/components/NavigationBar/NavigationBar';
 
   export const LaunchPage: React.FC = () => {
       //Getting single Launch from SpaceX
@@ -38,6 +39,16 @@ import {
             >
                 Ship info
             </Button>
+            {/* <NavigationBar launchId={launchId}/> */}
+            <TabNavigation className="iconBar" height="50px">
+  {[{ name:'Launch',href:`/launch/${launchId}` }, { name:'Ships',href:`/ships/${launchId}` }].map((tab, index) => (
+    <Tab key={tab.name} is="a" href={tab.href} id={tab.name} isSelected={index === 0}>
+      <IconContext.Provider value={{ color:'black', size: '40px' }}>
+      {tab.name === "Launch" ? <SiStarship /> : <RiShipFill />}
+      </IconContext.Provider>
+    </Tab>
+  ))}
+</TabNavigation>
           </div>
         );
   };
