@@ -21,5 +21,15 @@ export const launches = () => {
       }
   };
 
-  return { getLaunches, getSingleLaunch };
+  const getLaunchpadDetails = async (launchPadId: any) => {
+    try {
+        const response = await api.get(`/v4/launchpads/${launchPadId}`);
+
+        return response.data;
+      } catch (error) {
+        throw new Error(String(error));
+      }
+  };
+
+  return { getLaunches, getSingleLaunch, getLaunchpadDetails };
 };

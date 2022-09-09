@@ -18,3 +18,5 @@ body {
 .launchItemLastPart{
   float:right;
 }
+
+#map { height: 360px; }
