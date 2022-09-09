@@ -8,6 +8,7 @@ import {
   } from 'evergreen-ui';
   import React, { useEffect, useState } from 'react';
   import { launches } from 'src/services/launches';
+  import { Ship } from 'src/components/Ship/Ship';
   import { useParams } from 'react-router-dom';
 
   export const LaunchPage: React.FC = () => {
@@ -32,6 +33,11 @@ import {
             />
             <h3>ID: {launchId}</h3>
             <h3>Title: {launchSingleDetail.name}</h3>
+            <Button marginRight={16} intent="danger"
+                onClick={()=>{window.location.href=`/ships/${launchId}`;}}
+            >
+                Ship info
+            </Button>
           </div>
         );
   };

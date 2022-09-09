@@ -21,5 +21,26 @@ export const launches = () => {
       }
   };
 
-  return { getLaunches, getSingleLaunch };
+  const getShips = async (launchId: any) => {
+    try {
+      // get ships to retrieve
+      console.log(`Getting ships for launch: ${launchId}`);
+        const response:any = await api.get(`/v4/launches/${launchId}`);
+
+      console.log(`the whole thing: ${JSON.stringify(response)}`);
+      console.log(`Ships found: ${JSON.stringify(response.data.ships)}`);
+
+      // retrieve ships one by one
+      const aShips = [];
+      for( const shipName of response.data.ships){
+        const ship = await api.get(`/v4/ships/${shipName}`);
+        aShips.push(ship.data);
+      }
+        return aShips;
+      } catch (error) {
+        throw new Error(String(error));
+      }
+  };
+
+  return { getLaunches, getSingleLaunch, getShips };
 };
