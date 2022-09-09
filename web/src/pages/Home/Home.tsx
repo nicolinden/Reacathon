@@ -49,8 +49,8 @@ export const Home: React.FC = () => {
       <main>
         {launchDetails.map((launch: any) => (
           <Launch key={launch.id} icon={launch.links.patch.small}
-          title="ABS-2A / Eutelsat 117W B"
-          date="13 June 2006" successIcon="/img/success.png"
+          title={launch.name}
+          date={launch.date_utc} success={launch.success}
           />
         ))}
 
