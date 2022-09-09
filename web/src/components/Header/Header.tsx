@@ -1,7 +1,17 @@
 import React from 'react';
-import { Heading, majorScale, Pane } from 'evergreen-ui';
+import { Button, Heading, majorScale, Pane } from 'evergreen-ui';
+import { Route, Routes, useNavigate } from "react-router-dom";
 
-export const Header = () => {
+interface HeaderInterface {
+  showBackButton: boolean;
+  headerTitle: string;
+};
+
+export const Header: React.FC<HeaderInterface> = (props) => {
+  const { showBackButton, headerTitle } = props;
+  const navigate = useNavigate();
+  const navBack = () => navigate(-1);
+
   return (
     <Pane
       height={majorScale(6)}
@@ -11,7 +21,8 @@ export const Header = () => {
       justifyContent="center"
       alignItems="center"
     >
-      <Heading size={600}>Reacathon</Heading>
+      {showBackButton && <Button onClick={navBack}>Back</Button>}
+      <Heading size={600}>{headerTitle}</Heading>
     </Pane>
   );
 };

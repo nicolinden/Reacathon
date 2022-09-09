@@ -17,7 +17,7 @@ export const LaunchDetailPage: React.FC<any> = () => {
 
   return (
     <Pane>
-      <Header />
+      <Header headerTitle={launchDetails.name} showBackButton={true} />
       <main>
         <div>{launchDetails.name} {launchDetails.id}</div>
       </main>
