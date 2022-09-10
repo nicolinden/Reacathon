@@ -1,4 +1,4 @@
-import { Button, Divider, Stack } from '@mui/material';
+import { Box, Button, Divider, Stack } from '@mui/material';
 import {
   Pane,
   ListItem,
@@ -8,8 +8,6 @@ import {
   Text,
   Icon,
   EndorsedIcon,
-  ChevronRightIcon,
-  ErrorIcon,
   minorScale,
   majorScale,
   Heading } from 'evergreen-ui';
@@ -19,6 +17,9 @@ import { Header } from 'src/components/Header/Header';
 import { launches } from 'src/services/launches';
 import { Footer } from 'src/components/Footer/Footer';
 import { TabBar } from 'src/components/Footer/TabBar';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import ErrorIcon from '@mui/icons-material/Error';
 
 export const Home: React.FC<any> = () => {
   const [launchList, setLaunchList] = useState<any>([]);
@@ -41,21 +42,23 @@ export const Home: React.FC<any> = () => {
   const LaunchItem = ({ launchId, launchDate, launchSuccess, image, name }: any) => {
     return (
       <Link to={`/${launchId}/info`} style={ { textDecoration:'none' } }>
-        <Pane display="flex" flexDirection="row"
-          justifyContent="space-between" padding={majorScale(1)} alignContent="Center" alignItems="Center"
+        <Box
+          display="flex"
+          flexDirection="row"
+          justifyContent="space-between" alignContent="Center" alignItems="Center"
         >
-          <Pane display="flex" flexDirection="row" alignContent="center" alignItems="center">
+          <Box display="flex" flexDirection="row" alignContent="center" alignItems="center" sx={{ p: 1 }}>
             <Image src={image} width="44px" height="44px"/>
-            <Pane display="flex" flexDirection="column" padding={majorScale(1)}>
+            <Box display="flex" flexDirection="column" sx={{ p: 1 }}>
               <Heading>{name}</Heading>
               <Text>{launchDate}</Text>
-            </Pane>
-          </Pane>
-          <Pane>
-            <Icon icon={launchSuccess ? EndorsedIcon : ErrorIcon} color={launchSuccess ? 'green' : 'red'} size={18} />
-            <Icon icon={ChevronRightIcon} color="gray" paddingLeft={majorScale(1)} />
-          </Pane>
-        </Pane>
+            </Box>
+          </Box>
+          <Box sx={{ p: 1 }}>
+              { launchSuccess ? <CheckCircleIcon color="success" /> : <ErrorIcon color="error" /> }
+            <ChevronRightIcon color="secondary" sx={{ pl: 1 }} />
+          </Box>
+        </Box>
       </Link>
     );
   };

@@ -1,6 +1,9 @@
 import React from 'react';
-import { Button, Heading, majorScale, Pane } from 'evergreen-ui';
+import { Box, Button, Divider, Stack } from '@mui/material';
+import { Heading, majorScale, Pane } from 'evergreen-ui';
 import { useNavigate } from "react-router-dom";
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import Icon from '@mui/material/Icon';
 
 interface HeaderInterface {
   showBackButton: boolean;
@@ -13,16 +16,17 @@ export const Header: React.FC<HeaderInterface> = (props) => {
   const navBack = () => navigate("/");
 
   return (
-    <Pane
-      height={majorScale(6)}
-      background="blue700"
+    <Box
       textAlign="center"
       display="flex"
       justifyContent="center"
       alignItems="center"
+      sx={{ backgroundColor:"primary.dark" }}
     >
-      {showBackButton && <Button onClick={navBack} style={{ marginLeft: '8px', marginRight: 'auto' }}>Back</Button>}
+      {showBackButton && <Button variant="text" onClick={navBack}>
+        <ChevronLeftIcon style={{ color: '#fff' }} />
+      </Button>}
       <Heading size={600} color="white" style={{ margin: 'auto' }}>{headerTitle}</Heading>
-    </Pane>
+    </Box>
   );
 };
