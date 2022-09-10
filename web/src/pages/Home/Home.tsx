@@ -1,3 +1,4 @@
+import { Button, Divider, Stack } from '@mui/material';
 import {
   Pane,
   ListItem,
@@ -80,9 +81,9 @@ export const Home: React.FC<any> = () => {
     <Pane>
       <Header headerTitle="Space X Launches" showBackButton={false} />
       <main>
-        <UnorderedList icon={RocketSlantIcon} iconColor="info" paddingBottom={majorScale(3)}>
+        <Stack spacing={2} divider={<Divider orientation="horizontal" flexItem />}>
           {listItems}
-        </UnorderedList>
+        </Stack>
       </main>
     </Pane>
   );

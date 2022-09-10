@@ -2,7 +2,7 @@ import React from 'react';
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 import {  } from 'react-leaflet';
 interface MapInterface {
-  position: number[]
+  position: any
 };
 
 export const Map: React.FC<MapInterface> = (props) => {
